@@ -6,7 +6,10 @@ import {
   Param,
   Post,
   Put,
+  Request,
+  Response
 } from '@nestjs/common';
+import { LoginDto } from 'src/submodules/backend-refresher-1.0-dtos/src/dtos/login.dto';
 import { UserDto } from 'src/submodules/backend-refresher-1.0-dtos/src/dtos/user.dto';
 import { UserService } from './User.service';
 
@@ -19,6 +22,19 @@ export class UserController {
     try {
       let createdUser = await this.userService.createUser(user)
       return createdUser
+      //console.log('control is here', user);
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+
+  //login
+  @Post('/login')
+  async loginUser(@Body() user: LoginDto) {
+    try {
+      let loginUser = await this.userService.loginUser(user)
+      return loginUser
       //console.log('control is here', user);
     } catch (error) {
       console.log(error);

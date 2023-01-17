@@ -19,7 +19,7 @@ import { User } from './submodules/backend-refresher-entities-1.0/src/entities/u
       synchronize: true,
       logging: true,
     }),
-    UserModule
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
